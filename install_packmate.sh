@@ -1,8 +1,9 @@
-if [ -d "packmate-starter" ]; then
-    rm -rf packmate-starter
+INSTALL_PATH="packmate-starter"
+if [ -d "$INSTALL_PATH" ]; then
+    rm -rf "$INSTALL_PATH"
 fi
-git clone https://gitlab.com/packmate/starter.git packmate-starter
-cd packmate-starter
+git clone https://gitlab.com/packmate/starter.git "$INSTALL_PATH"
+cd "$INSTALL_PATH"
 PACKMATE_LOCAL_IP="$(hostname -I | awk '{print $1}')"
 PACKMATE_WEB_LOGIN=ufoufo
 PACKMATE_WEB_PASSWORD="$(mktemp -u XXXXXXXXXXXXXXXXXXX)"
@@ -21,3 +22,4 @@ PACKMATE_OLD_STREAMS_CLEANUP_INTERVAL=5
 PACKMATE_OLD_STREAMS_CLEANUP_THRESHOLD=60
 " > .env
 docker compose up --build -d
+cd -
