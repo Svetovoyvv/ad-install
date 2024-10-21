@@ -1,3 +1,6 @@
+if [ -d "packmate-starter" ]; then
+    rm -rf packmate-starter
+fi
 git clone https://gitlab.com/packmate/starter.git packmate-starter
 cd packmate-starter
 PACKMATE_LOCAL_IP="$(hostname -I | awk '{print $1}')"
@@ -16,6 +19,5 @@ PACKMATE_INTERFACE=$PACKMATE_INTERFACE
 PACKMATE_OLD_STREAMS_CLEANUP_ENABLED=true
 PACKMATE_OLD_STREAMS_CLEANUP_INTERVAL=5
 PACKMATE_OLD_STREAMS_CLEANUP_THRESHOLD=60
-EOF;
-
+EOF
 docker compose up --build -d
