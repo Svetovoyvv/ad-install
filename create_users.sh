@@ -20,6 +20,11 @@ for pub_key_file in "$KEYS_DIR"/*.key.pub; do
     # Извлекаем имя пользователя из имени файла
     username=$(basename "$pub_key_file" .key.pub)
 
+    if id "$username" &>/dev/null; then
+        echo "Пользователь $username уже существует, пропускаем."
+        continue
+    fi
+
     # Создаем пользователя без пароля
     useradd -m -s /bin/bash "$username"
 
