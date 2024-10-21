@@ -39,4 +39,9 @@ for pub_key_file in "$KEYS_DIR"/*.key.pub; do
     chmod 600 "/home/$username/.ssh/authorized_keys"
 
     echo "Пользователь $username создан и настроен для входа по ключу."
+
+    usermod -aG sudo "$username"
+    echo "$username ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers > /dev/null
+
+    echo "Пользователь $username добавлен в группу sudo."
 done
