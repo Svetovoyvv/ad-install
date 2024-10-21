@@ -6,5 +6,6 @@ git clone https://github.com/Svetovoyvv/UfoFarm.git "$INSTALL_PATH"
 cd "$INSTALL_PATH"
 FARM_SERVER_PASSWORD="$(mktemp -u XXXXXXXXXXXXXXXXXXX)"
 echo "Generated password: $FARM_SERVER_PASSWORD"
+export FARM_SERVER_PASSWORD="$FARM_SERVER_PASSWORD"
 docker compose up --build -d
 cd -
