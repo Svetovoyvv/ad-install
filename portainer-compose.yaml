@@ -7,4 +7,4 @@ services:
         - /opt/docker/portainer:/data
     command: --admin-password "${PASSWORD_HASH}"
     ports:
-        - "9000:9000"
+        - "47501:9000"
