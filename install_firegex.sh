@@ -1,3 +1,5 @@
-sh <(curl -sLf https://pwnzer0tt1.it/firegex.sh)
+mkdir firegex
 cd firegex
-python3 run.py start --standalone
+sh <(curl -sLf https://pwnzer0tt1.it/firegex.sh)
+python3 firegex.py start --standalone
+cd -

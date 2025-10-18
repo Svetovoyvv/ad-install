@@ -50,3 +50,11 @@ for pub_key_file in "$KEYS_DIR"/*.key.pub; do
 
     echo "Пользователь $username добавлен в группу sudo."
 done
+
+echo "Все пользователи созданы и настроены для входа по ключу."
+
+echo "Создание универсального пароля для сервисов"
+
+PASSWORD="$(mktemp -u XXXXXXXXXXXXXXXXXXX)"
+echo "Сгенерированный пароль: $PASSWORD"
+echo "$PASSWORD" > /etc/services-password.txt

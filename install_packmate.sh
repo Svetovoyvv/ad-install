@@ -6,7 +6,7 @@ git clone https://gitlab.com/packmate/starter.git "$INSTALL_PATH"
 cd "$INSTALL_PATH"
 PACKMATE_LOCAL_IP="$(hostname -I | awk '{print $1}')"
 PACKMATE_WEB_LOGIN=ufoufo
-PACKMATE_WEB_PASSWORD="$(mktemp -u XXXXXXXXXXXXXXXXXXX)"
+PACKMATE_WEB_PASSWORD="$(cat /etc/services-password.txt)"
 PACKMATE_INTERFACE="$(ip -o -4 route show to default | awk '{print $5}')"
 echo "Generated user: $PACKMATE_WEB_LOGIN:$PACKMATE_WEB_PASSWORD"
 echo "Host: $PACKMATE_INTERFACE:$PACKMATE_LOCAL_IP"
